@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	$: currentPage = $page.url.pathname;
+
 	const links = [
 		{
 			name: 'Dashboard',
@@ -51,9 +54,18 @@
 			<div class="flex h-20 items-center justify-center text-2xl">Ecommerce</div>
 			<ul class="flex flex-col p-3">
 				{#each links as link}
-					<li class={`flex rounded-md p-3 hover:bg-black hover:bg-opacity-10`}>
-						<a href={link.path}>{link.name}</a>
-					</li>
+					{#if link.path === currentPage}
+						<li
+							class={`flex rounded-md bg-slate-500 p-3 hover:bg-black hover:bg-opacity-10
+							`}
+						>
+							<a href={link.path}>{link.name}</a>
+						</li>
+					{:else}
+						<li class={`flex rounded-md p-3 hover:bg-black hover:bg-opacity-10`}>
+							<a href={link.path}>{link.name}</a>
+						</li>
+					{/if}
 				{/each}
 			</ul>
 		</aside>
