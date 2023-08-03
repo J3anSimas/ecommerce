@@ -215,7 +215,7 @@
 					{#each latestOrders as order}
 						<tr class="text-sm">
 							<td class="">{order.id}</td>
-							<td class="text-left font-bold">{order.customer}</td>
+							<td class="w-[30%] text-left font-bold">{order.customer}</td>
 							<td class="text-left">{order.email}</td>
 							<td>{order.value}</td>
 							<td class="flex justify-center py-4">
@@ -230,7 +230,7 @@
 								>
 							</td>
 							<td>{order.date}</td>
-							<td
+							<td class="text-right"
 								><button>
 									<iconify-icon icon="mdi:dots-horizontal" />
 								</button></td

@@ -48,7 +48,7 @@
 
 	<title>Ecommerce | Admin</title>
 </svelte:head>
-<div class="flex h-full w-full justify-center">
+<div class="h-full w-full">
 	<div class="flex w-full max-w-7xl">
 		<aside class="h-full w-64">
 			<div class="flex h-20 items-center justify-center text-2xl">Ecommerce</div>
@@ -62,14 +62,14 @@
 							<a href={link.path}>{link.name}</a>
 						</li>
 					{:else}
-						<li class={`flex rounded-md p-3 hover:bg-black hover:bg-opacity-10`}>
-							<a href={link.path}>{link.name}</a>
+						<li class={`flex rounded-md hover:bg-black hover:bg-opacity-10`}>
+							<a href={link.path} class="w-full p-3">{link.name}</a>
 						</li>
 					{/if}
 				{/each}
 			</ul>
 		</aside>
-		<main class="h-full flex-1">
+		<main class="h-full w-full">
 			<header class="flex h-20 w-full items-center justify-between p-6">
 				<span>Search</span>
 				<span class="flex items-center gap-4">
@@ -96,7 +96,7 @@
 					</button>
 				</span>
 			</header>
-			<div class="p-4">
+			<div class="h-full p-4">
 				<slot />
 			</div>
 		</main>
