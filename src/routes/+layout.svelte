@@ -16,7 +16,7 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
-<div class="">
+<div class="flex h-full max-h-screen w-full items-center justify-center overflow-y-auto">
 	<Modal />
 	<slot />
 </div>

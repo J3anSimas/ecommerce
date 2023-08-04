@@ -4,10 +4,6 @@
 
 	const links = [
 		{
-			name: 'Dashboard',
-			path: '/admin'
-		},
-		{
 			name: 'Products',
 			path: '/admin/products'
 		},
@@ -28,10 +24,6 @@
 			path: '/admin/reviews'
 		},
 		{
-			name: 'Transactions',
-			path: '/admin/transactions'
-		},
-		{
 			name: 'Hot offers',
 			path: '/admin/hot-offers'
 		},
@@ -48,13 +40,13 @@
 
 	<title>Ecommerce | Admin</title>
 </svelte:head>
-<div class="h-full w-full">
-	<div class="flex w-full max-w-7xl">
+<div class="flex h-full max-h-screen w-full justify-center overflow-y-hidden">
+	<div class="flex w-full max-w-7xl justify-center">
 		<aside class="h-full w-64">
-			<div class="flex h-20 items-center justify-center text-2xl">Ecommerce</div>
+			<a href="/admin" class="flex h-20 items-center justify-center text-2xl">Ecommerce</a>
 			<ul class="flex flex-col p-3">
 				{#each links as link}
-					{#if link.path === currentPage}
+					{#if currentPage.includes(link.path)}
 						<li
 							class={`flex rounded-md bg-slate-500 p-3 hover:bg-black hover:bg-opacity-10
 							`}

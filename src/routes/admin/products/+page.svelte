@@ -16,9 +16,10 @@
 		type: 'component',
 		component: modalComponent
 	};
-	modalStore.trigger(modal);
 
 	// Trigger the modal:
+	// modalStore.trigger(modal);
+
 	const productsData = [
 		{
 			id: 1,
@@ -56,7 +57,7 @@
 
 	<title>Ecommerce | Admin Products</title>
 </svelte:head>
-<div class=" grid h-full gap-3">
+<div class=" flex h-full flex-col gap-3">
 	<header class="flex items-center justify-between">
 		<h1 class="text-2xl">Products</h1>
 		<button class="btn bg-primary-500" on:click={() => modalStore.trigger(modal)}>Add</button>
@@ -85,10 +86,10 @@
 						<td class="text-center">{product.soldLast30Days}</td>
 						<td class="text-center">
 							<button class="btn-icon btn-icon-sm bg-primary-500"
-								><iconify-icon icon="mdi:pencil" style="color: #bbb;" /></button
+								><iconify-icon icon="mdi:pencil" style="color: #fff;" /></button
 							>
 							<button class="btn-icon btn-icon-sm bg-primary-500"
-								><iconify-icon icon="mdi:delete" style="color: #bbb;" /></button
+								><iconify-icon icon="mdi:delete" style="color: #fff;" /></button
 							>
 						</td>
 					</tr>
