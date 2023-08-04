@@ -2,11 +2,11 @@
 	export const parent = '';
 	export const background = '';
 	const categories = ['Casual', 'Formal', 'Sport', 'Elegant'];
-	$: imagesToUpload = [];
+	let imagesToUpload = [] as File[];
 	let tempImages: FileList;
 	$: if (tempImages) {
 		imagesToUpload.push(...tempImages);
-		console.log(imagesToUpload);
+		imagesToUpload = imagesToUpload;
 	}
 	let imageInput: HTMLInputElement;
 </script>
@@ -46,26 +46,24 @@
 			multiple
 		/>
 		<div class="h-20 w-full">
-			{#if imagesToUpload.length > 0}
-				{#each imagesToUpload as image}
-					<img src={URL.createObjectURL(image)} alt="" class="h-full w-full object-cover" />
-				{/each}
-			{:else}
-				<div class="flex h-full w-full items-center justify-center rounded-md border border-dashed">
-					<button
-						class="h-full w-full"
-						type="button"
-						on:click={() => imageInput.click()}
-						on:keydown={(e) => {
-							if (e.key === 'Enter') {
-								imageInput.click();
-							}
-						}}
-					>
-						<iconify-icon icon="mdi:camera" style="color: #bbb;" />
-					</button>
-				</div>
-			{/if}
+			<div class="flex h-full w-full items-center justify-center rounded-md border border-dashed">
+				<button
+					class={`h-full ${imagesToUpload.length > 0 ? 'w-20' : 'w-full'} `}
+					type="button"
+					on:click={() => imageInput.click()}
+					on:keydown={(e) => {
+						if (e.key === 'Enter') {
+							imageInput.click();
+						}
+					}}
+				>
+					<iconify-icon icon="mdi:camera" style="color: #bbb;" />
+				</button>
+			</div>
+			{#each imagesToUpload as image}
+				{console.log(image)}
+				<img src={URL.createObjectURL(image)} alt="" class="h-full w-20" />
+			{/each}
 		</div>
 	</div>
 	<button type="button" class="btn-lg variant-outline-primary rounded-md font-bold">Create</button>
